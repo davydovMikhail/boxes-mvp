@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/boxes-mvp/static/css/main.9cc01181.css",
+    "main.js": "/boxes-mvp/static/js/main.9028bf40.js",
+    "static/media/usdc.svg": "/boxes-mvp/static/media/usdc.f08e02b1252e78ae2924100dfcb8428c.svg",
+    "static/media/usdt.svg": "/boxes-mvp/static/media/usdt.6dc09781df56f4a369623b3cb8349479.svg",
+    "index.html": "/boxes-mvp/index.html",
+    "static/media/eth.svg": "/boxes-mvp/static/media/eth.3e84d3cb772bd03a9640b320b4282eb2.svg",
+    "main.9cc01181.css.map": "/boxes-mvp/static/css/main.9cc01181.css.map",
+    "main.9028bf40.js.map": "/boxes-mvp/static/js/main.9028bf40.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9cc01181.css",
+    "static/js/main.9028bf40.js"
+  ]
+}
