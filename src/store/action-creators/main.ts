@@ -7,3 +7,6 @@ export function SetLoader(loader: boolean): MainAction {
 export function SetBox(box: EBox): MainAction {
     return {type: MainActionTypes.SET_BOX, payload: box}
 } 
+export function SetIntervals(intervals: any[]): MainAction {
+    return {type: MainActionTypes.SET_INTERVALS, payload: intervals}
+} 
