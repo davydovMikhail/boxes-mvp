@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { EBox } from "../types/main";
 import { useActions } from "../hooks/useActions";
 import { useGetFullness } from "../hooks/useGetFullness"; 
-// import { useTypedSelector } from "../hooks/useTypedSelector";
 import { boxesInfo } from "../utils/boxes";
 import eth from "../img/eth.svg";
 import usdt from "../img/usdt.svg";
@@ -10,7 +9,6 @@ import usdc from "../img/usdc.svg";
 
 
 const Box = (symbol: EBox) => {
-    // const {  } = useTypedSelector(state => state.main);
     const { SetBox } = useActions();
 
     const [fullness, setFullness] = useState(NaN);

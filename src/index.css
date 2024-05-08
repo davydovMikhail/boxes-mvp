@@ -297,5 +297,9 @@ template {
 .history__item {
   font-size: 24px;
   display: grid;
-  grid-template-columns: 50% 25% 25%;
+  grid-template-columns: 35% 15% 25% 25%;
+}
+.history__button {
+  margin-left: 45%;
+  margin-top: 20px;
 }

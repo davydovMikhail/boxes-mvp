@@ -7,6 +7,7 @@ type IBoxInfo = { [key in EBox]: {
     token: string,
     roundingUp: number
 }; }
+type IRewardValue = { [key in string]: string; }
 
 export const boxesInfo: IBoxInfo = {
     [EBox.None]: {
@@ -38,3 +39,8 @@ export const boxesInfo: IBoxInfo = {
         roundingUp: 0,
     },
 } 
+export const rewardsValue: IRewardValue = {
+    "0x0000000000000000000000000000000000000000": "1 ETH",
+    "0XA2C4BA3DF18AD9148DF54D4B3F73EB4357C22A4B": "2000 USDC",
+    "0X27E017F0FF982579F06D36A091AEEC69AEF5F3A4": "2000 USDT",
+}

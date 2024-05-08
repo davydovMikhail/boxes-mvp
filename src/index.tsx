@@ -5,13 +5,9 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { Config, Sepolia, DAppProvider } from "@usedapp/core";
-// import { config } from './config';
 
 const DAppConfig: Config = {
   readOnlyChainId: Sepolia.chainId,
-  // readOnlyUrls: {
-  //   [Sepolia.chainId]: config.network.sepolia.url
-  // },
 };
 
 const root = ReactDOM.createRoot(

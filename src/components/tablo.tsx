@@ -10,6 +10,8 @@ import { useGetAllowance } from "../hooks/useGetAllowance";
 import { useApproveToGame } from "../hooks/useApproveToGame"; 
 import { useGetBalance } from "../hooks/useGetBalance";
 import { useGetContributors } from "../hooks/useGetContributors";
+import { useGetStory } from "../hooks/useGetStory";
+import { useGetLength } from "../hooks/useGetLength";
 import eth from "../img/eth.svg";
 import usdt from "../img/usdt.svg";
 import usdc from "../img/usdc.svg";
@@ -19,7 +21,7 @@ import Contributors from "./contributors";
 const Tablo = () => {
     const [percent, setPercent] = useState(1);
     const { currentBox } = useTypedSelector(state => state.main);
-    const { SetBox, SetIntervals } = useActions();
+    const { SetBox, SetIntervals, UnshiftStory } = useActions();
     const { account } = useEthers();
     const [fullness, setFullness] = useState(NaN);
     const fullnessHook = useGetFullness();
@@ -28,6 +30,8 @@ const Tablo = () => {
     const approveHook = useApproveToGame();
     const balanceHook = useGetBalance();
     const contributorsHook = useGetContributors();
+    const storyHook = useGetStory();
+    const lengthHook = useGetLength();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -62,6 +66,7 @@ const Tablo = () => {
     }
 
     async function contribute() {
+        
         if (!account) {
             toast.info('FIRST CONNECT YOUR WALLET', {
                 position: "bottom-center",
@@ -90,12 +95,18 @@ const Tablo = () => {
             if((await allowanceHook(account, currentBox) as number) < getStakeAmount()) {
               await approveHook(currentBox);
             }
-        }        
+        }
+        const isWillUnshift = (fullness + percent) >= 100;    
         await participateHook(currentBox, getStakeAmount());
-        const fullness = await fullnessHook(currentBox);
-        setFullness(fullness as number);
+        const _fullness = await fullnessHook(currentBox);
+        setFullness(_fullness as number);
         const _intervals = await contributorsHook(currentBox);
         SetIntervals(_intervals as any[]); 
+        if(isWillUnshift) {
+            const length = await lengthHook();
+            const story = await storyHook(length - 1);
+            UnshiftStory(story);
+        }
     }
 
     function goBack() {

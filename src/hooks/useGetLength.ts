@@ -9,7 +9,7 @@ export const useGetLength = () => {
     return useCallback(
         async () => {  
             try {
-                const L = (await contractGame.lengthRequests()).toNumber();
+                const L = (await contractGame.lengthRequests()).toNumber();                
                 return L;
             } catch(error: any) {
                 const errorMessage =
